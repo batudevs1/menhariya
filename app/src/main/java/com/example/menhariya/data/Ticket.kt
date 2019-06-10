@@ -3,22 +3,45 @@ package com.example.menhariya.data
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.gson.annotations.Expose
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
+import java.util.*
 
-@Entity(tableName = "ticket")
+
 data class Ticket (
-    @PrimaryKey
-    @ColumnInfo(name = "carplate")
-    val carplate: String,
-    @ColumnInfo(name = "start")
+    @SerializedName("id")
+    @Expose
+    val id: Long,
+
+    @SerializedName("car_plate")
+    @Expose
+    val car_plate: String,
+
+    @SerializedName("start")
+    @Expose
     val start: String,
-    @ColumnInfo(name = "destination")
+
+    @SerializedName("destination")
+    @Expose
     val destination: String,
-    @ColumnInfo(name = "cartype")
+
+    @SerializedName("cartype")
+    @Expose
     val cartype: String,
-    @ColumnInfo(name = "chairno")
+
+    @SerializedName("price")
+    @Expose
+    val price: String,
+
+    @SerializedName("chairno")
+    @Expose
     val chairno: String,
-    @ColumnInfo(name = "driverid")
-    val driverid: String
+    @SerializedName("driverid")
+    @Expose
+    val driverid: String,
+    @SerializedName("date")
+    @Expose
+    val date: String
 
     ): Serializable

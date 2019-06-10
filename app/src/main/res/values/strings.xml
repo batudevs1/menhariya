@@ -13,4 +13,12 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+    <string name="back">back</string>
+    <string name="add">add</string>
+
+<string-array name="role">
+<item>shufer</item>
+    <item>tesafari</item>
+
+</string-array>
 </resources>

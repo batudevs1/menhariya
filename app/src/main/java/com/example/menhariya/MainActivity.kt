@@ -1,5 +1,8 @@
 package com.example.menhariya
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.os.Bundle
 import androidx.core.view.GravityCompat
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -9,29 +12,75 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
+import android.view.View
+import androidx.fragment.app.Fragment
+import androidx.viewpager.widget.ViewPager
+import com.google.android.material.tabs.TabLayout
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, Login_Fragment.OnSignupClicked {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, NavigationHost{
 
+/*
     override fun onSignupClicked() {
+   navigateTo(Signup_Fragment(), true)
 
-        val signupfragment=Signup_Fragment()
+     *//*   val signupfragment=Signup_Fragment()
         supportFragmentManager.beginTransaction()
             .add(R.id.container_frame,signupfragment)
             .addToBackStack(null)
-            .commit()
+            .commit()*//*
 
     }
 
     override fun onLoginClicked() {
-        val driverFragment=Driver_Fragment()
+        navigateTo(Login_Fragment(), false)
+       *//* val driverFragment=Driver_Fragment()
         supportFragmentManager.beginTransaction()
             .replace(R.id.container_frame, driverFragment)
-            .commit()
-    }
+            .commit()*//*
+    }*/
+var tabLayout: TabLayout? = null
+    var viewPager: ViewPager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+//tabbed
+        tabLayout = findViewById<TabLayout>(R.id.tabLayout)
+        viewPager = findViewById<ViewPager>(R.id.viewPager)
+
+        tabLayout!!.addTab(tabLayout!!.newTab().setText("Add Ticket"))
+        tabLayout!!.addTab(tabLayout!!.newTab().setText("View"))
+        tabLayout!!.addTab(tabLayout!!.newTab().setText("ccc"))
+        tabLayout!!.tabGravity = TabLayout.GRAVITY_FILL
+
+        val adapter = MyAdapter(this, supportFragmentManager, tabLayout!!.tabCount)
+        viewPager!!.adapter = adapter
+
+        viewPager!!.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayout))
+
+        tabLayout!!.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                viewPager!!.currentItem = tab.position
+            }
+            override fun onTabUnselected(tab: TabLayout.Tab) {
+
+            }
+            override fun onTabReselected(tab: TabLayout.Tab) {
+
+            }
+        })
+
+
+        //end of tabbed
+
+
+
+
+
+
+
+
+
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
@@ -106,4 +155,29 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
+
+    public fun connected():Boolean {
+
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE)
+                as ConnectivityManager
+        val networkInfo: NetworkInfo? = connectivityManager.activeNetworkInfo
+
+        return networkInfo != null && networkInfo.isConnected
+
+    }
+
+
+  override fun navigateTo(fragment: Fragment, addToBackstack: Boolean) {
+        val transaction = supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.container_frame, fragment)
+
+        if (addToBackstack) {
+            transaction.addToBackStack(null)
+        }
+
+        transaction.commit()
+    }
+
+
 }

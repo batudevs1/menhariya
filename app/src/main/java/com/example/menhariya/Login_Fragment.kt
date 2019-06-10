@@ -5,36 +5,38 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.login.view.*
+import kotlinx.android.synthetic.main.login.view.password_Text
+import kotlinx.android.synthetic.main.login.view.userid_Text
+import kotlinx.android.synthetic.main.signup.view.*
 
 class Login_Fragment:Fragment() {
 
-    private lateinit var listener: OnSignupClicked
+private lateinit var login:Button
 
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
+    private  lateinit var signupButton:Button
 
-        if(context is OnSignupClicked) {
-            listener = context
-        }
-
-    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View
     {
+        val activity = activity as MainActivity?
+
       val view=inflater.inflate(R.layout.login, container, false)
+
         val uname=view.userid_Text
         val psd=view.password_Text
-        val login=view.login_Button
-        val signupText=view.signup_Text
+         login=view.login_Button
+         signupButton=view.tosignup_Button
 
         login.setOnClickListener {
-         listener.onLoginClicked()
 
+            (activity as NavigationHost).navigateTo(ViewpagerFragment(), false)
         }
 
-        signupText.setOnClickListener {
-          listener.onSignupClicked()
+        signupButton.setOnClickListener {
+            (activity as NavigationHost).navigateTo(Signup_Fragment(), true)
 
         }
 
@@ -42,12 +44,5 @@ class Login_Fragment:Fragment() {
 
     }
 
-    interface OnSignupClicked {
-        fun  onSignupClicked()
-        fun  onLoginClicked()
-    }
 
-    interface OnLoginClicked{
-        fun onLoginClicked()
-    }
 }
