@@ -52,9 +52,6 @@ class AddTicket_Fragment:Fragment() {
                  val isConnected = activity?.connected()
                  addbutton.setOnClickListener {
 
-                    //            userViewModel.registerUser(readFields())
-//            clearFields()
-//            registrationConfirmation.text = "Successfully Registered!"
 
                     if(isConnected!!) {
                         ticketViewModel.addTicket(readFields())
