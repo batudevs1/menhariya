@@ -34,6 +34,10 @@ class Detail_Adapter(private var allTicket: List<Ticket>) :
         holder.carplate.text = ticket.car_plate
         holder.start.text = ticket.start
         holder.destination.text = ticket.destination
+        holder.cartype.text =ticket.cartype
+        holder.price.text =ticket.price
+        holder.date.text = ticket.date
+
 
         holder.itemView.setOnClickListener {
             (activity as NavigationHost).navigateTo(
@@ -48,6 +52,9 @@ class Detail_Adapter(private var allTicket: List<Ticket>) :
         var carplate: TextView = tView.findViewById(R.id.car_plate_id)
         var start: TextView = tView.findViewById(R.id.start_id)
         var destination: TextView = tView.findViewById(R.id.destination_id)
+        var cartype: TextView = tView.findViewById(R.id.cartype_id)
+        var price: TextView = tView.findViewById(R.id.price_id)
+        var date: TextView = tView.findViewById(R.id.date_id)
 
     }
 

@@ -21,7 +21,7 @@ class Ticket_DetailFragment:Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        return inflater.inflate(R.layout.ticket_detail, container, false)
+        return inflater.inflate(R.layout.ticketinfo, container, false)
     }
 
 
@@ -43,7 +43,7 @@ class Ticket_DetailFragment:Fragment() {
         fun newInstance(id: Long): Ticket_DetailFragment{
             val detail = Ticket_DetailFragment()
             val args = Bundle()
-            args.putLong("ticketid",id)
+            args.putLong("id",id)
             detail.arguments = args
 
             return detail

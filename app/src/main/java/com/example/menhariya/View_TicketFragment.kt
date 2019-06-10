@@ -2,6 +2,7 @@ package com.example.menhariya
 
 import android.os.Bundle
 import android.view.*
+import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.menhariya.data.Ticket
 import com.example.menhariya.viewmodel.TicketViewModel
 import com.example.menhariya.viewmodel.UserViewModel
+import kotlinx.android.synthetic.main.add_ticket.*
 import kotlinx.android.synthetic.main.ticket_view.view.*
 
 class View_TicketFragment:Fragment() {
@@ -23,6 +25,9 @@ class View_TicketFragment:Fragment() {
    private lateinit var carplate:TextView
     private lateinit var start:TextView
     private lateinit var destination:TextView
+    private lateinit var cartype:EditText
+    private lateinit var price:EditText
+    private lateinit var date:EditText
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,11 +51,6 @@ class View_TicketFragment:Fragment() {
 
         recyclerView = view.recycler_view
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = Detail_Adapter(allTicket = this.allTicket)
-        recyclerView.setHasFixedSize(true)
-
-
-
 
 
 
@@ -61,14 +61,16 @@ class View_TicketFragment:Fragment() {
             recyclerView.adapter = Detail_Adapter(it)
         })
 
+        recyclerView.setHasFixedSize(true)
 
         if(isConnected!!) {
-            ticketViewModel.getTicketById(5).observe(this, Observer {
+            ticketViewModel.getTicketById(1).observe(this, Observer {
                 val ticket = it
 
                 carplate.text = ticket?.car_plate
                 start.text = ticket?.start
               destination.text = ticket?.destination
+
             })
         }
 

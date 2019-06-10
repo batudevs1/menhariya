@@ -16,7 +16,7 @@ class MyAdapter(private val myContext: Context, fm: FragmentManager, internal va
                 return AddTicket_Fragment()
             }
             1 -> {
-                return CreatedTicketFragment()
+                return View_TicketFragment()
             }
             2 -> {
 
