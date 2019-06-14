@@ -6,10 +6,10 @@ import com.google.gson.annotations.SerializedName
 
 class DriverEmb( @SerializedName("_embedded")
                 @Expose
-                val embeddedUsers: UserList
+                val embeddedUsers: DriverList
 ) {
 
-    data class UserList(
+    data class DriverList(
         @SerializedName("drivers")
         @Expose
         val allDrivers: List<Driver>

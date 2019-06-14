@@ -10,8 +10,8 @@ import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.menhariya.data.User
+import com.example.menhariya.view.NavigationHost
 import com.example.menhariya.viewmodel.UserViewModel
-import kotlinx.android.synthetic.main.signup.*
 import kotlinx.android.synthetic.main.signup.view.*
 
 class Signup_Fragment:Fragment() {

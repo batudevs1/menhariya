@@ -1,6 +1,5 @@
 package com.example.menhariya
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +9,7 @@ import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.menhariya.data.Ticket
+import com.example.menhariya.view.NavigationHost
 import com.example.menhariya.viewmodel.TicketViewModel
 import kotlinx.android.synthetic.main.add_ticket.view.*
 

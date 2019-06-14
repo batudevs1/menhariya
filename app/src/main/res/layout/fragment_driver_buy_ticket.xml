@@ -4,7 +4,7 @@
                                                    xmlns:tools="http://schemas.android.com/tools"
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
-                                                   tools:context=".DriverBuyTicket">
+                                                   tools:context=".MainActivity">
 
 
     <androidx.constraintlayout.widget.Guideline android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -27,6 +27,7 @@
             app:layout_constraintStart_toStartOf="@+id/guideline6"
             android:layout_marginTop="52dp" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
             app:layout_constraintHorizontal_bias="0.0" android:gravity="center" android:textStyle="bold"
             android:textSize="18sp"/>
     <Button
@@ -48,6 +49,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView20"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            android:layout_marginRight="8dp"
             app:layout_constraintHorizontal_bias="1.0" android:hint="Addis Ababa"/>
     <EditText
             android:layout_width="190dp"
@@ -56,6 +58,7 @@
             android:ems="10"
             android:id="@+id/destination_et"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
             app:layout_constraintStart_toStartOf="@+id/guideline6" app:layout_constraintHorizontal_bias="0.0"
             android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView21"
             android:hint="Bahir Dar"/>

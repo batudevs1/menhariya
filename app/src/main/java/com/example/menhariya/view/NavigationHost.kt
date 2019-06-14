@@ -1,4 +1,4 @@
-package com.example.menhariya
+package com.example.menhariya.view
 
 import androidx.fragment.app.Fragment
 

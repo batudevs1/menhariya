@@ -1,4 +1,4 @@
-package com.example.menhariya
+package com.example.menhariya.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
+import com.example.menhariya.R
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.viewpager.view.*
 

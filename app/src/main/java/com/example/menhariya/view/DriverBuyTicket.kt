@@ -1,4 +1,4 @@
-package com.example.busstation
+package com.example.menhariya
 
 
 import android.app.DatePickerDialog
@@ -14,8 +14,8 @@ import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
-import com.example.busstation.data.TransportInfo
-import com.example.busstation.viewmodel.TranspInfoviewmodel
+import com.example.menhariya.data.TransportInfo
+import com.example.menhariya.viewmodel.TranspInfoviewmodel
 import kotlinx.android.synthetic.main.fragment_driver_buy_ticket.view.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -30,10 +30,10 @@ class DriverBuyTicket : Fragment() {
     private lateinit var dateValue:String
     private lateinit var timeValue:String
 
-    private lateinit var transpInfoVM: TranspInfoviewmodel
+    private lateinit var transpInfoVM:TranspInfoviewmodel
     private lateinit var listener:OnTransportInfoByBtnClicked
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         if(context is OnTransportInfoByBtnClicked){listener = context}
     }

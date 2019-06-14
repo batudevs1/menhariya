@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.menhariya.data.Ticket
+import com.example.menhariya.view.NavigationHost
 
 class Detail_Adapter(private var allTicket: List<Ticket>) :
     RecyclerView.Adapter<Detail_Adapter.TViewHolder>() {
